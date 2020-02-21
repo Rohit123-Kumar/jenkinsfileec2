@@ -4,15 +4,15 @@
     "KeyName": {
         "Description": "Key Pair Name",
         "Type": "AWS::EC2::KeyPair::KeyName",
-        "Default": "linuxdev"
+        "Default": "New5"
     },
     "VPC": {
         "Type": "AWS::EC2::VPC::Id",
-        "Default":"vpc-0cc8cf64"
+        "Default":"vpc-016c5ee4ff45bf033"
     },
     "Subnet":{
         "Type": "AWS::EC2::Subnet::Id",
-        "Default": "subnet-059a8612790a600ec"
+        "Default": "subnet-0195bf80eb527a446"
     },
     "InstanceType": {
         "Description": "Select one of the possible instance types",
@@ -22,8 +22,8 @@
     },
     "SecurityGroup":{
          "Type": "AWS::EC2::SecurityGroup::Id",
-         "Default" : "sg-07d413db2dc9f23f8",
-         "AllowedValues": ["sg-07d413db2dc9f23f8", "sg-yyy", "sg-zzz"]
+         "Default" : "sg-0f89bb7e3e999ba8e",
+         "AllowedValues": ["sg-0f89bb7e3e999ba8e", "sg-yyy", "sg-zzz"]
 		 } 
 },
 "Resources":{
