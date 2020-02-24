@@ -12,7 +12,7 @@
     },
     "Subnet":{
         "Type": "AWS::EC2::Subnet::Id",
-        "Default": "subnet-0195bf80eb527a446"
+        "Default": "subnet-06875cf644cefe028"
     },
     "InstanceType": {
         "Description": "Select one of the possible instance types",
