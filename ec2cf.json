@@ -41,7 +41,7 @@
 				"yum update -y\n",
 				"yum install docker -y\n",
 				"service docker start\n",
-				"docker run -itd --name myjenkins -p 8888:80 httpd\n"
+				"docker run -itd --name myhttpd -p 8888:80 httpd\n"
 				]]}}
         }
     },
