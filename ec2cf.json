@@ -4,7 +4,7 @@
     "KeyName": {
         "Description": "Key Pair Name",
         "Type": "AWS::EC2::KeyPair::KeyName",
-        "Default": "New5"
+        "Default": "sasken"
     },
     "VPC": {
         "Type": "AWS::EC2::VPC::Id",
