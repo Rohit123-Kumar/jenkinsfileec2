@@ -8,11 +8,11 @@
     },
     "VPC": {
         "Type": "AWS::EC2::VPC::Id",
-        "Default":"vpc-016c5ee4ff45bf033"
+        "Default":"vpc-022eb067"
     },
     "Subnet":{
         "Type": "AWS::EC2::Subnet::Id",
-        "Default": "subnet-06875cf644cefe028"
+        "Default": "subnet-3a860536"
     },
     "InstanceType": {
         "Description": "Select one of the possible instance types",
@@ -22,8 +22,8 @@
     },
     "SecurityGroup":{
          "Type": "AWS::EC2::SecurityGroup::Id",
-         "Default" : "sg-0f89bb7e3e999ba8e",
-         "AllowedValues": ["sg-0f89bb7e3e999ba8e", "sg-yyy", "sg-zzz"]
+         "Default" : "sg-0021d064",
+         "AllowedValues": ["sg-0021d064", "sg-yyy", "sg-zzz"]
 		 } 
 },
 "Resources":{
@@ -41,14 +41,14 @@
 				"yum update -y\n",
 				"yum install docker -y\n",
 				"service docker start\n",
-				"docker run -itd --name myjenkins -p 8888:8080 jenkins/jenkins\n"
+				"docker run -itd --name myjenkins -p 8888:80 httpd\n"
 				]]}}
         }
     },
 	"Server2": {
         "Type": "AWS::EC2::Instance",
         "Properties": {
-            "ImageId": "ami-0d9462a653c34dab7",
+            "ImageId": "ami-0a887e401f7654935",
             "InstanceType": {"Ref": "InstanceType"},
             "KeyName": {"Ref": "KeyName"},
             "SecurityGroupIds": [{"Ref": "SecurityGroup"}],
@@ -59,7 +59,7 @@
 				"yum update -y\n",
 				"yum install docker -y\n",
 				"service docker start\n",
-				"docker run -itd --name mynginx nginx\n"
+				"docker run -itd --name mynginx -p 8080:80 nginx\n"
 				]]}}
         }
     }
