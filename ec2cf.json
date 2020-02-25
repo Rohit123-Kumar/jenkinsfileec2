@@ -1,5 +1,5 @@
 
-  {"Description": "CloudFormation template for creating an ec2 instance",
+ {"Description": "CloudFormation template for creating an ec2 instance",
 "Parameters": {
     "KeyName": {
         "Description": "Key Pair Name",
@@ -27,7 +27,7 @@
 		 } 
 },
 "Resources":{
-    "Server1": {
+    "Server": {
         "Type": "AWS::EC2::Instance",
         "Properties": {
             "ImageId": "ami-0a887e401f7654935",
@@ -35,14 +35,58 @@
             "KeyName": {"Ref": "KeyName"},
             "SecurityGroupIds": [{"Ref": "SecurityGroup"}],
             "SubnetId": {"Ref": "Subnet"},
-			"UserData" : {"Fn::Base64" : {"Fn::Join" : ["",[
-				"#!/bin/bash -xe\n",
-				"sudo su\n",
-				"yum update -y\n",
-				"yum install docker -y\n",
-				"service docker start\n",
-				"docker run -itd --name myhttpd -p 8888:80 httpd\n"
-				]]}}
+			"UserData": { "Fn::Base64" : { "Fn::Join" : ["", [
+              "#!/bin/bash -xe\n",
+				"sudo su \n",
+                "yum update -y\n",
+                "yum install docker -y \n",
+				"service docker start \n",
+				"docker pull httpd \n",
+				"docker volume create vol \n",
+				"docker run -d --name hut -p 80:80 -v vol:/usr/local/apache2 httpd\n",
+				"cd /var/lib/docker/volumes/vol/_data/htdocs \n",
+				"yum install git -y \n",
+				"git init\n",
+				"git remote add origin https://github.com/sushmitabhandari/iDirect.git \n",
+				"git clone https://github.com/sushmitabhandari/iDirect.git \n",
+				"mv iDirect/iDirect.html .\n",
+				"truncate -s 0 index.html \n",
+				"mv iDirect.html index.html \n"
+					
+				]
+				]
+				}}
+        }
+    },
+	"Server1": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+            "ImageId": "ami-0a887e401f7654935",
+            "InstanceType": {"Ref": "InstanceType"},
+            "KeyName": {"Ref": "KeyName"},
+            "SecurityGroupIds": [{"Ref": "SecurityGroup"}],
+            "SubnetId": {"Ref": "Subnet"},
+			"UserData": { "Fn::Base64" : { "Fn::Join" : ["", [
+              "#!/bin/bash -xe\n",
+				"sudo su \n",
+                "yum update -y\n",
+                "yum install docker -y \n",
+				"service docker start \n",
+				"docker pull httpd \n",
+				"docker volume create vol \n",
+				"docker run -d --name hut -p 80:80 -v vol:/usr/local/apache2 httpd\n",
+				"cd /var/lib/docker/volumes/vol/_data/htdocs \n",
+				"yum install git -y \n",
+				"git init\n",
+				"git remote add origin https://github.com/sushmitabhandari/iDirect.git \n",
+				"git clone https://github.com/sushmitabhandari/iDirect.git \n",
+				"mv iDirect/pp.html .\n",
+				"truncate -s 0 index.html \n",
+				"mv pp.html index.html \n"
+					
+				]
+				]
+				}}
         }
     },
 	"Server2": {
@@ -53,26 +97,34 @@
             "KeyName": {"Ref": "KeyName"},
             "SecurityGroupIds": [{"Ref": "SecurityGroup"}],
             "SubnetId": {"Ref": "Subnet"},
-			"UserData" : {"Fn::Base64" : {"Fn::Join" : ["",[
-				"#!/bin/bash -xe\n",
-				"sudo su\n",
-				"yum update -y\n",
-				"yum install docker -y\n",
-				"service docker start\n",
-				"docker run -itd --name mynginx -p 8080:80 nginx\n"
-				]]}}
+			"UserData": { "Fn::Base64" : { "Fn::Join" : ["", [
+              "#!/bin/bash -xe\n",
+				"sudo su \n",
+                "yum update -y\n",
+                "yum install docker -y \n",
+				"service docker start \n",
+				"docker pull httpd \n",
+				"docker volume create vol \n",
+				"docker run -d --name hut -p 80:80 -v vol:/usr/local/apache2 httpd\n",
+				"cd /var/lib/docker/volumes/vol/_data/htdocs \n",
+				"yum install git -y \n",
+				"git init\n",
+				"git remote add origin https://github.com/sushmitabhandari/iDirect.git \n",
+				"git clone https://github.com/sushmitabhandari/iDirect.git \n",
+				"mv iDirect/terminal.html .\n",
+				"truncate -s 0 index.html \n",
+				"mv terminal.html index.html \n"
+					
+				]
+				]
+				}}
         }
     }
 },
 "Outputs": {
     "PublicName": {
-        "Value": {"Fn::GetAtt": ["Server1", "PublicDnsName"]},
+        "Value": {"Fn::GetAtt": ["Server", "PublicDnsName"]},
         "Description": "Public name (connect via SSH)"
     }   
 }
 }
-
-
-
-
-
