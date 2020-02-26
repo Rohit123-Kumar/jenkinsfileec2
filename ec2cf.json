@@ -1,10 +1,9 @@
-
- {"Description": "CloudFormation template for creating an ec2 instance",
+  {"Description": "CloudFormation template for creating an ec2 instance",
 "Parameters": {
     "KeyName": {
         "Description": "Key Pair Name",
         "Type": "AWS::EC2::KeyPair::KeyName",
-        "Default": "sasken"
+        "Default": "idirect"
     },
     "VPC": {
         "Type": "AWS::EC2::VPC::Id",
@@ -55,7 +54,12 @@
 					
 				]
 				]
-				}}
+				}},
+			"Tags" : [
+               {
+             "Key" : "Name",
+             "Value" : "NMS"
+            }]
         }
     },
 	"Server1": {
@@ -86,7 +90,12 @@
 					
 				]
 				]
-				}}
+				}},
+				"Tags" : [
+               {
+             "Key" : "Name",
+             "Value" : "PP"
+            }]
         }
     },
 	"Server2": {
@@ -117,9 +126,35 @@
 					
 				]
 				]
-				}}
+				}},
+				"Tags" : [
+               {
+             "Key" : "Name",
+             "Value" : "TERMINAL"
+            }]
         }
-    }
+    },
+	"IPAssoc" : {
+     "Type" : "AWS::EC2::EIPAssociation",
+     "Properties" : {
+         "InstanceId" : {"Ref": "Server"},
+         "EIP" : "100.26.0.83"
+     }
+	 },
+	 "IPAssoc1" : {
+     "Type" : "AWS::EC2::EIPAssociation",
+     "Properties" : {
+         "InstanceId" : {"Ref": "Server1"},
+         "EIP" : "3.212.186.0"
+     }
+	 },
+	 "IPAssoc2" : {
+     "Type" : "AWS::EC2::EIPAssociation",
+     "Properties" : {
+         "InstanceId" : {"Ref": "Server2"},
+         "EIP" : "34.195.73.130"
+     }
+ }
 },
 "Outputs": {
     "PublicName": {
