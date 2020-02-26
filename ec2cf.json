@@ -88,7 +88,10 @@
 				"git clone https://github.com/sushmitabhandari/iDirect.git \n",
 				"mv iDirect/pp.html .\n",
 				"truncate -s 0 index.html \n",
-				"mv pp.html index.html \n"
+				"mv pp.html index.html \n",
+				"git clone https://github.com/sushmitabhandari/soc.git \n",
+				"cd soc \n",
+				"mv client.c /home/ec2-user \n"
 					
 				]
 				]
