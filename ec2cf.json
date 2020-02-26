@@ -11,7 +11,7 @@
     },
     "Subnet":{
         "Type": "AWS::EC2::Subnet::Id",
-        "Default": "subnet-385ae04f"
+        "Default": "subnet-b12cea9a"
     },
     "InstanceType": {
         "Description": "Select one of the possible instance types",
@@ -21,8 +21,8 @@
     },
     "SecurityGroup":{
          "Type": "AWS::EC2::SecurityGroup::Id",
-         "Default" : "sg-0021d064",
-         "AllowedValues": ["sg-0021d064", "sg-yyy", "sg-zzz"]
+         "Default" : "sg-04b1e9ce3cd06e297",
+         "AllowedValues": ["sg-04b1e9ce3cd06e297", "sg-yyy", "sg-zzz"]
 		 } 
 },
 "Resources":{
