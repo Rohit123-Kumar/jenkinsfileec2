@@ -53,7 +53,9 @@
 				"mv iDirect.html index.html \n",
 				"git clone https://github.com/sushmitabhandari/soc.git \n",
 				"cd soc \n",
-				"mv server.c /home/ec2-user \n"					
+				"mv server.c /home/ec2-user \n",
+				"yum install gcc -y \n",
+				"mv server.c nms.c"
 				]
 				]
 				}},
@@ -91,7 +93,9 @@
 				"mv pp.html index.html \n",
 				"git clone https://github.com/sushmitabhandari/soc.git \n",
 				"cd soc \n",
-				"mv client.c /home/ec2-user \n"
+				"mv client.c /home/ec2-user \n",
+				"yum install gcc -y \n",
+				"mv client.c pp.c"
 					
 				]
 				]
