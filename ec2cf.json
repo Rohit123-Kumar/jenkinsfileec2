@@ -3,7 +3,7 @@
     "KeyName": {
         "Description": "Key Pair Name",
         "Type": "AWS::EC2::KeyPair::KeyName",
-        "Default": "sasken"
+        "Default": "idirect"
     },
     "VPC": {
         "Type": "AWS::EC2::VPC::Id",
@@ -50,8 +50,10 @@
 				"git clone https://github.com/sushmitabhandari/iDirect.git \n",
 				"mv iDirect/iDirect.html .\n",
 				"truncate -s 0 index.html \n",
-				"mv iDirect.html index.html \n"
-					
+				"mv iDirect.html index.html \n",
+				"git clone https://github.com/sushmitabhandari/soc.git \n",
+				"cd soc \n",
+				"mv server.c /home/ec2-user \n"					
 				]
 				]
 				}},
